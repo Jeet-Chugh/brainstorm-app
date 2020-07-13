@@ -1,0 +1,100 @@
+# CLASSES,FILES AT BOTTOM
+
+# IMPORT FUNCTIONS COME HERE
+#:import hex kivy.utils.get_color_from_hex
+#:import Clock kivy.clock.Clock
+
+FloatLayout:
+    ScreenManager:
+        id: screen_manager
+        Create_Screen:
+            name: 'create_screen'
+            id: create_screen
+        Ideas_Screen:
+            name: 'ideas_screen'
+            id: ideas_screen
+        Settings_Screen:
+            name: 'settings_screen'
+            id: settings_screen
+
+        # SETTINGS SCREENS:
+        Stats_Settings:
+            name: 'stats_settings'
+            id: stats_settings
+
+        # NON VISIBLE SCREENS
+        View_Idea:
+            name: 'view_idea'
+            id: view_idea
+        Create_Category:
+            name: 'create_category'
+            id: create_category
+        View_Category:
+            name: 'view_category'
+            id: view_category
+        All_Categories:
+            name: 'all_categories'
+            id: all_categories
+        All_Ideas:
+            name: 'all_ideas'
+            id: all_ideas
+
+    #UNIVERSAL FOOTER
+    GridLayout:
+        pos_hint: {'top': 0.08}
+        size_hint: 1,0.08
+        cols: 3
+        # CREATE/HOME BUTTON
+        FooterButton:
+            background_normal: 'images\\buttons\\Create_Button_Down.jpg'
+            background_down: 'images\\buttons\\Create_Button_Down.jpg'
+            on_release: app.change_screen('create_screen')
+            id: create_button
+            text: 'Create'
+        # IDEAS BUTTON
+        FooterButton:
+            background_normal: 'images\\buttons\\Ideas_Button_Normal.jpg'
+            background_down: 'images\\buttons\\Ideas_Button_Down.jpg'
+            on_release: app.change_screen('ideas_screen')
+            id: ideas_button
+            text: 'Ideas'
+        # SETTINGS BUTTON
+        FooterButton:
+            background_normal: 'images\\buttons\\Settings_Button_Normal.jpg'
+            background_down: 'images\\buttons\\Settings_Button_Down.jpg'
+            on_release: app.change_screen('settings_screen')
+            id: settings_button
+            text: 'Settings'
+# Dark Gray Page Background Class (For Design Files)
+<Fill_Page@FloatLayout>:
+    # Sizing Info
+    pos_hint: {'top': 1}
+    size_hint: 1,1
+
+    #Background Color = Skobeloffe
+    canvas:
+        Color:
+            rgba: hex('#197278')
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+# CUSTOM CLASSES/FILEPATHS (IGNORE)
+# Button Class used for Footer
+<FooterButton@Button>:
+    background_normal: ''
+    color: hex('#373F47')
+    font_size: '15dp'
+    text_size: None,self.height
+    padding: 0,2
+
+# Button Class used for Settings (Main & Advanced)
+<SettingButton@Button>:
+    font_size: '35dp'
+    bold: True
+
+# IMPORT .kv FILES
+
+#: include kv_screens\create_screen.kv
+#: include kv_screens\ideas_screen.kv
+#: include kv_screens\settings_screen.kv

@@ -1,0 +1,69 @@
+# MAIN SETTINGS PAGE
+<Settings_Screen@Screen>:
+    Fill_Page:
+        GridLayout:
+            cols: 1
+            pos_hint: {'top': 0.95,'x': 0.05}
+            size_hint: 0.90,0.15
+            SettingButton:
+                text: 'Stats'
+                on_release: app.stats()
+                background_normal: ''
+                background_color: hex('#373F47')
+            SettingButton:
+                text: 'Reset'
+                on_release: app.reset()
+                background_normal: ''
+                background_color: hex('#373F47')
+
+<Stats_Settings@Screen>:
+    name: 'stats_settings'
+    id: stats_settings
+    Fill_Page:
+        GridLayout:
+            pos_hint: {'top': 1}
+            size_hint: 1,0.10
+            cols: 1
+            Label:
+                text: 'Stats/About'
+                font_size: '32dp'
+                bold: True
+        GridLayout:
+            cols: 2
+            pos_hint: {'top': 0.88}
+            size_hint: 1,0.08
+            Label:
+                text: 'Credits:'
+                bold: True
+                font_size: '20dp'
+            Label:
+                text: 'Jeet Chugh'
+                font_size: '19dp'
+        GridLayout:
+            cols: 1
+            pos_hint: {'top': 0.80}
+            size_hint: 1,0.08
+            Label:
+                text: 'Total Ideas:'
+                font_size: '20dp'
+                bold: True
+            Label:
+                font_size: '19dp'
+                id: ideas_number
+        GridLayout:
+            cols: 1
+            pos_hint: {'top': 0.72}
+            size_hint: 1,0.08
+            Label:
+                text: 'Total Categories:'
+                font_size: '20dp'
+                bold: True
+            Label:
+                font_size: '19dp'
+                id: cat_number
+
+
+# CUSTOM CLASSES (IGNORE)
+<IndentButton@Button>:
+    font_size: '20dp'
+    text_size: self.width,None
